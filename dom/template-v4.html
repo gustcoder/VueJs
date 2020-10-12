@@ -1,0 +1,34 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ titulo }}</p>
+    <p>{{ saudacao() }}</p>
+    <p>{{ texto }}</p>
+    <!--<p>{{ getAttr('algum texto') }}</p>-->
+    <a v-bind:href="link">Google</a>
+    <br>
+    <img v-bind:src="src" v-bind:title="title" />
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS!',
+            texto: 'outro texto',
+            link: 'http://google.com.br',
+            src: '../../dashboard/images/bitnami-xampp.png',
+            title: 'This is an image'
+        },
+        methods: {
+            saudacao: function(){
+                console.log(this);
+                return this.titulo;
+            },
+            getAttr: function(someText){
+                this.texto = someText
+                return this.texto
+            }
+        }
+    });
+</script>
