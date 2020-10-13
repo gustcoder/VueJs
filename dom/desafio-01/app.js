@@ -9,6 +9,7 @@ new Vue({
         novaIdade: function(){
             return this.idade * 3
         },
+        // Testing push
         numRandom: function(){
             return Math.random()
         }
