@@ -10,6 +10,10 @@
         data (dica: event.target.value) -->
     <div>
         <input type="text" v-on:keydown="getData">
+        <!--
+            opção do instrutor
+            <input type="text" v-on:keydown="valor = $event.target.value">
+        -->
         <p>{{ valor }}</p>
     </div>
     
