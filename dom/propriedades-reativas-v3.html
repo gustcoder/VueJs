@@ -21,6 +21,11 @@
                 return this.contador <= 5 ? 'Menor ou igual a 5' : 'Maior que 5'
             }
         },
+        watch: {
+            contador(novo, antigo){
+                console.log(antigo, novo)
+            }
+        },
         methods: {
             aumentar(){
                 console.log('metodo computed aumentar chamado')

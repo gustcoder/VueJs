@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ca8cb611-151b-48ea-ad79-6748f933efb9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dom/propriedades-reativas-v3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/desafio-01/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/dom/desafio-01/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/desafio-01/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/desafio-01/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/desafio-02/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/dom/desafio-02/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/desafio-02/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/desafio-02/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/eventos-v1.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/eventos-v1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/eventos-v2.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/eventos-v2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/eventos-v3.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/eventos-v3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/eventos-v4.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/eventos-v4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/eventos-v5.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/eventos-v5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/interpolacao.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/interpolacao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/propriedades-reativas-v1.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/propriedades-reativas-v1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/propriedades-reativas-v2.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/propriedades-reativas-v2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/template-v1.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/template-v1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/template-v2.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/template-v2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/template-v3.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/template-v3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/template-v4.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/template-v4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/template-v5.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/template-v5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dom/template-v6.html" beforeDir="false" afterPath="$PROJECT_DIR$/dom/template-v6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/introducao/primeira-app-v1.html" beforeDir="false" afterPath="$PROJECT_DIR$/introducao/primeira-app-v1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/introducao/primeira-app-v2.html" beforeDir="false" afterPath="$PROJECT_DIR$/introducao/primeira-app-v2.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1iwN7sdP3bOeTCPeFy2IMKGkEUU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dom" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/dom" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ca8cb611-151b-48ea-ad79-6748f933efb9" name="Default Changelist" comment="" />
+      <created>1602814529274</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602814529274</updated>
+      <workItem from="1602814530416" duration="857000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="545" y="95" width="1034" height="850" key="CommitChangelistDialog2" timestamp="1602814752411">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="545" y="95" width="1034" height="850" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1602814752411" />
+    <state x="289" y="89" width="1536" height="856" key="DiffContextDialog" timestamp="1602814622334">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="289" y="89" width="1536" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602814622334" />
+    <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602814756302">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602814756302" />
+  </component>
+</project>
