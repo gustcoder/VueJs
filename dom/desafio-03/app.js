@@ -10,14 +10,14 @@ new Vue({
             }
         },
         resultado () {
-            this.resetValor
+            //this.resetValor
             return this.valor != 37 ? 'Valor Diferente' : 'Valor Igual'
-        },
-        /* implementacao do curso... Esqueci do Watch!!! =/ */
-        watch: {
-            resultado () {
-                setTimeout(() => this.valor = 0, 5000)            
-            }
+        }
+    },
+    /* implementacao do curso... Esqueci do Watch!!! =/ */
+    watch: {
+        resultado () {
+            setTimeout(() => this.valor = 0, 5000)            
         }
     }
 });
