@@ -4,11 +4,11 @@ new Vue({
         valor: 0
     },
     computed: {
-        resetValor () {
-            if (this.valor == 37) {
-                setTimeout(() => this.valor = 0, 5000)
-            }
-        },
+        // resetValor () {
+        //     if (this.valor == 37) {
+        //         setTimeout(() => this.valor = 0, 5000)
+        //     }
+        // },
         resultado () {
             //this.resetValor
             return this.valor != 37 ? 'Valor Diferente' : 'Valor Igual'
