@@ -24,6 +24,9 @@
         watch: {
             contador(novo, antigo){
                 console.log(antigo, novo)
+                setTimeout(() => {
+                    this.contador = 0
+                },2000)
             }
         },
         methods: {
