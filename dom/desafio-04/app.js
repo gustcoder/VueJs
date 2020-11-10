@@ -5,11 +5,12 @@ new Vue({
 		noClass: ['noClass1', 'noClass2'],
 		customClass: 'customClass1',
 		removerTransform: false,
-		estilo: 'width: auto; height: 20px; backgroundColor: black; color: white;',
+		estilo: 'width: 500px; height: 20px; backgroundColor: black; color: white;',
 		progressColor: 'blue',
 		progressHeight: '20px',
-		progressWidth: 0,
-		stopLoading: false
+		progressWidth: '500px',
+		stopLoading: false,
+		width: '0'
 	},
 	computed: {
 		customStyle() {
@@ -23,7 +24,7 @@ new Vue({
 				return {
 					backgroundColor: this.progressColor,
 					height: this.progressHeight,
-					width: `${this.progressWidth}px`
+					width: `${this.progressWidth}%`
 				}
 			}
 		}
@@ -35,9 +36,15 @@ new Vue({
 			}, 2000)
 		},
 		iniciarProgresso() {
-			const loadingBar = setInterval(() => {
-				!this.stopLoading ? this.progressWidth += 10 : clearInterval(loadingBar)
-			}, 2000)
+			let valor = 0
+			const loadingBar = setInterval(() => { 
+				valor += 5
+				this.width = `${valor}%`
+				if (valor == 100) clearInterval(loadingBar)
+			}, 500)
+			// const loadingBar = setInterval(() => {
+			// 	!this.stopLoading ? this.progressWidth += 5 : clearInterval(loadingBar)
+			// }, 2000)
 		}
 	}
 })
