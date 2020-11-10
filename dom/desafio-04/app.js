@@ -8,7 +8,8 @@ new Vue({
 		estilo: 'width: auto; height: 20px; backgroundColor: black; color: white;',
 		progressColor: 'blue',
 		progressHeight: '20px',
-		progressWidth: 0
+		progressWidth: 0,
+		stopLoading: false
 	},
 	computed: {
 		customStyle() {
@@ -16,6 +17,7 @@ new Vue({
 		},
 		progressBar() {
 			if (this.progressWidth == 100) {
+				this.stopLoading = true
 				alert('Carregamento concluido!')
 			} else {
 				return {
@@ -33,8 +35,8 @@ new Vue({
 			}, 2000)
 		},
 		iniciarProgresso() {
-			setInterval(() => {
-				this.progressWidth += 10
+			const loadingBar = setInterval(() => {
+				!this.stopLoading ? this.progressWidth += 10 : clearInterval(loadingBar)
 			}, 2000)
 		}
 	}
