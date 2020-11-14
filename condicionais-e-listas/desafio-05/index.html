@@ -8,7 +8,7 @@
   <div>
     <button @click="viewItem = !viewItem">Alternar</button>
     <p v-if="viewItem">Você quer me ver ...</p>
-    <p v-if="!viewItem">...ou eu</p>
+    <p v-else>...ou eu</p>
     <p v-show="viewItem">Você quer me ver ...</p>
     <p v-show="!viewItem">...ou eu</p>
   </div>
@@ -29,8 +29,8 @@
     Imprima também o índice de cada item. -->
   <h2>#03</h2>
   <ul>    
-    <li v-for="(item, chave) in livro">
-      {{ chave }}: {{ item }}
+    <li v-for="(item, chave, key) in livro">
+    {{ key }}: {{ chave }} - {{ item }}
     </li>
   </ul>
   
@@ -43,10 +43,16 @@
 		}
     (dica: use v-for e v-if na resolução) -->
   <h2>#04</h2>
-  <template v-for="info in aluno">
-    <ul>
-      <li v-if="Array.isArray(info)" v-for="nota in info" >{{ nota }}</li>     
-    </ul>
-  </template>
+  <ul>
+    <li v-for="info in aluno">
+      <template v-if="!Array.isArray(info)">
+        {{ info }}
+      </template>
+      <template v-else>
+        Notas:
+        <span v-for="notas in info">{{ notas }}|</span>
+      </template>
+    </li>     
+  </ul>
 </div>
 <script src="app.js"></script>
