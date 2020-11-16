@@ -74,9 +74,6 @@ new Vue ({
     watch: {
         hasResult (value) {
             value ? this.isRunning = false : this.isRunning = true
-        },
-        logs () {
-            console.log(this.logs)
         }
     }
 })
