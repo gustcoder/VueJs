@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <h1 ref="aulaRef">{{ aula }}</h1>  
+    <h2>{{ modulo }}</h2>  
+    <button @click="alterarAula">Alterar Aula</button>
+    <button @click="alterarModulo">Alterar Módulo</button>
+</div>
+
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            aula: 'Aula: Usando Refs',
+            modulo: 'Módulo: Instância Vue'
+        },
+        methods: {
+            alterarAula () {
+                vm.aula += '#'
+            },
+            alterarModulo () {
+                vm.modulo += '#'
+                console.log(vm.$refs.aulaRef) //.innerText
+            }
+        }
+    })
+</script>
