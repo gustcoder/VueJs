@@ -1,28 +1,28 @@
 <template>
   <v-app>
-    <v-menu/>
-    <v-toolbar/>
+    <l-menu/>
+    <l-toolbar/>
     <v-content>
-      <v-carousel/>
+      <l-carousel/>
     </v-content>  
-    <v-footer/>
+    <l-footer/>
   </v-app>
 </template>
 
 <script>
-import Toolbar from './components/Toolbar.vue'
-import Menu from './components/Menu.vue'
-import Carousel from './components/Carousel.vue'
-import Footer from './components/Footer'
+import Toolbar from '@/components/template/Toolbar.vue'
+import Menu from '@/components/template/Menu.vue'
+import Carousel from '@/components/widgets/Carousel.vue'
+import Footer from '@/components/template/Footer.vue'
 export default {
   components: {
-    'v-menu': Menu,
-    'v-carousel': Carousel,
-    'v-footer': Footer,
-    'v-toolbar': Toolbar
+    LMenu: Menu,
+    LCarousel: Carousel,
+    LFooter: Footer,
+    LToolbar: Toolbar
   },
   data() {
-    return {
+    return {      
     }
   }
 }
