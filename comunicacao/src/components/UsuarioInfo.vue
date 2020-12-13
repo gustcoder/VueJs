@@ -2,7 +2,8 @@
     <div class="componente">
         <h2>As Informações de Usuário</h2>
         <p>Vários detalhes...</p>
-        <p>Nome do usuário: {{ addSobrenome() }}</p>
+        <p>Nome do usuário: {{ addSobrenome () }}</p>
+        <button @click="reiniciarNome ()">Reiniciar Nome</button>
     </div>
 </template>
 
@@ -21,6 +22,12 @@ export default {
     methods: {
         addSobrenome () {
             return this.nome + ' Sobrenome'
+        },
+        reiniciarNome () {
+            this.nome = 'Gustavo'
+            this.$emit('reiniciarNome', {
+                nome: this.nome
+            })
         }
     }
 }
