@@ -25,8 +25,8 @@ export default {
         },
         reiniciarNome () {
             this.nome = 'Gustavo'
-            this.$emit('reiniciarNome', {
-                nome: this.nome
+            this.$emit('reiniciarNome', { // nome do evento pode ser qualquer um. sera referenciado no pai como @reiniciarNome
+                nome: this.nome // onde "nome" sera o item do objeto a se pegar la no componente pai, pelo $event.nome
             })
         }
     }
