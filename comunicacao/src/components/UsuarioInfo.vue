@@ -1,9 +1,17 @@
 <template>
     <div class="componente">
-        <h2>As Informações de Usuário</h2>
+        <h2 v-if="nomeExists">As Informações de Usuário</h2>
         <p>Vários detalhes...</p>
         <p>Nome do usuário: {{ addSobrenome () }}</p>
-        <button @click="reiniciarNome ()">Reiniciar Nome</button>
+        <button 
+            :disabled="isDisabled"
+            @click="reiniciarNome ()">
+            Reiniciar Nome
+        </button>
+        <button 
+            @click="restartNameCallback">
+            Reiniciar Nome (callback)
+        </button>
     </div>
 </template>
 
@@ -17,7 +25,17 @@ export default {
             // default: function () { // default tambem pode ser uma funcao
             //     return 'Informe o nome'
             // }
-        }
+        },
+        isDisabled: {
+            type: Boolean,
+            default: false
+        },
+        restartNameCallback: Function
+    },
+    computed: {
+        nomeExists () {
+            return this.nome ? true : false
+        },
     },
     methods: {
         addSobrenome () {

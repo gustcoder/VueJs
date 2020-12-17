@@ -7,7 +7,9 @@
         <hr>
         <div class="componentes">
             <app-usuario-info 
-                :nome="nome" 
+                :nome="nome"
+                :isDisabled="hasName"
+                :restartNameCallback="restartNameCallback"
                 @reiniciarNome="nome = $event.nome"
             />
             <app-usuario-editar />
@@ -26,9 +28,21 @@ export default {
             nome: 'Gustavo'
         }
     },
+    computed: {
+        hasName () {
+            return this.nome === ''
+        }
+    },
     methods: {
         alterarNome () {
             this.nome = 'Letícia'
+        },
+        // TODO: implementar metodo para colocar no @reiniciarNome
+        // reiniciarNome () {
+        //     this.nome = this.$event.nome
+        // }
+        restartNameCallback () {
+            this.nome = 'o nome foi alterado via Callback'
         }
     }
 }
