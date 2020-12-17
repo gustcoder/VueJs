@@ -4,15 +4,21 @@
         <p>Esse é um componente muito legal!</p>
         <p><strong>{{ nome }}</strong></p>
         <button @click="alterarNome">Alterar Nome</button>
+        <p>Idade: {{ idade }}</p>
         <hr>
         <div class="componentes">
             <app-usuario-info 
                 :nome="nome"
+                :idade="idade"
                 :isDisabled="hasName"
                 :restartNameCallback="restartNameCallback"
                 @reiniciarNome="nome = $event.nome"
             />
-            <app-usuario-editar />
+            <app-usuario-editar 
+                :nome="pegarNomeDoEvento ()"
+                :idade="idade"
+                @aniversario="idade = $event.idade"
+            />
         </div>
     </div>
 </template>
@@ -25,7 +31,8 @@ export default {
     components: { AppUsuarioInfo, AppUsuarioEditar },
     data () {
         return {
-            nome: 'Gustavo'
+            nome: 'Gustavo',
+            idade: 31
         }
     },
     computed: {
@@ -43,6 +50,9 @@ export default {
         // }
         restartNameCallback () {
             this.nome = 'o nome foi alterado via Callback'
+        },
+        pegarNomeDoEvento: function (nome) {
+            return nome
         }
     }
 }

@@ -3,6 +3,7 @@
         <h2 v-if="nomeExists">As Informações de Usuário</h2>
         <p>Vários detalhes...</p>
         <p>Nome do usuário: {{ addSobrenome () }}</p>
+        <p>Idade: {{ idade }}</p>
         <button 
             :disabled="isDisabled"
             @click="reiniciarNome ()">
@@ -25,6 +26,10 @@ export default {
             // default: function () { // default tambem pode ser uma funcao
             //     return 'Informe o nome'
             // }
+        },
+        idade: {
+            type: Number,
+            required: true
         },
         isDisabled: {
             type: Boolean,
