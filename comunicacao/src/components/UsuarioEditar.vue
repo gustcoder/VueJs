@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import barramento from '@/barramento'
+
 export default {
     props: {
         idade: {
@@ -29,7 +31,8 @@ export default {
     methods: {
         aniversario () {
             this.idade++
-            this.$emit('aniversario', { idade: this.idade })
+            //this.$emit('aniversario', { idade: this.idade })
+            barramento.aniversario(this.idade)
         }
     }
 }

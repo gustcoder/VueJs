@@ -18,7 +18,6 @@
                 :nome="pegarNomeDoEvento ()"
                 :idade="idade"
                 :aniversarioCallback="aniversarioCallback"
-                @aniversario="idade = $event.idade"
             />
         </div>
     </div>

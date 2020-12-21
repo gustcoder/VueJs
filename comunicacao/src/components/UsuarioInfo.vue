@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import barramento from '@/barramento'
+
 export default {
     props: {
         nome: {
@@ -52,6 +54,9 @@ export default {
                 nome: this.nome // onde "nome" sera o item do objeto a se pegar la no componente pai, pelo $event.nome
             })
         }
+    },
+    created () {
+        barramento.aplicarAniversario(idade => { this.idade = idade })
     }
 }
 </script>
