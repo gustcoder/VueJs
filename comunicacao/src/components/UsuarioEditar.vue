@@ -4,6 +4,7 @@
         <p>Edite as informações</p>
         <p v-if="exibeIdade">Idade: {{ idade }}</p>
         <button @click="aniversario">Aniversário</button>
+        <button @click="aniversarioCallback">Aniversário Callback</button>
     </div>
 </template>
 
@@ -17,7 +18,8 @@ export default {
         exibirIdade: {
             type: Boolean,
             default: false
-        }    
+        },
+        aniversarioCallback: Function
     },
     computed: {
         exibeIdade () {

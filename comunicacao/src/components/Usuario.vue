@@ -17,6 +17,7 @@
             <app-usuario-editar 
                 :nome="pegarNomeDoEvento ()"
                 :idade="idade"
+                :aniversarioCallback="aniversarioCallback"
                 @aniversario="idade = $event.idade"
             />
         </div>
@@ -50,6 +51,9 @@ export default {
         // }
         restartNameCallback () {
             this.nome = 'o nome foi alterado via Callback'
+        },
+        aniversarioCallback () {
+            this.idade++
         },
         pegarNomeDoEvento: function (nome) {
             return nome
