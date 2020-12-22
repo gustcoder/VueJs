@@ -10,11 +10,22 @@
 </template>
 
 <script>
+import barramento from '@/barramento.js'
+
 export default {
     data() {
         return {
             usuario: null
         }
+    },
+    methods: {
+        //
+    },
+    created() {
+        barramento.getUser(usuario => {
+            console.log(usuario)
+            this.usuario = usuario
+        })
     }
 }
 </script>
