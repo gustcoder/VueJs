@@ -23,7 +23,7 @@ export default {
     },
     created() {
         barramento.getUser(usuario => {
-            console.log(usuario)
+            // console.log(usuario)
             this.usuario = usuario
         })
     }

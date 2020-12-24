@@ -8,7 +8,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="usuario in usuarios" :key="usuario.id" @click="selectUser(usuario.id)">
+                <tr v-for="usuario in usuarios" :key="usuario.id" @click="selectUser(usuario)">
                     <td>{{ usuario.id }}</td>
                     <td>{{ usuario.nome }}</td>
                 </tr>
@@ -24,9 +24,8 @@ export default {
         usuarios: Array 
     },
     methods: {
-        selectUser (userId) {            
-            const key = userId - 1
-            barramento.selectUser(this.usuarios[key])
+        selectUser (user) {       
+            barramento.selectUser(user)
             // console.log(this.usuarios[key])
         }
     }
