@@ -1,6 +1,6 @@
 <template>
     <div class="citacao">
-        {{ texto }}
+        <slot></slot>
     </div>
 </template>
 
@@ -20,5 +20,8 @@ export default {
         background-color: rgba(0, 0, 0, .1);
         padding: 25px;
         max-width: 450px;
+    }
+    h1 {
+        color: blue; /* ira obedecer sempre do componente que esta enviando o conteudo do slot*/
     }
 </style>
