@@ -13,7 +13,7 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    setShowDialog (state, payload) {
+    showDialog (state, payload) {
       state.showDialog = payload
     }
   },

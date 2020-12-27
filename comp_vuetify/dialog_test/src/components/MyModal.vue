@@ -12,7 +12,7 @@ export default {
   },
   methods: {
     showDialog () {      
-      this.$store.commit('setShowDialog', true)
+      this.$store.commit('showDialog', true)
       // this.$store.state.showDialog = true
     }
   }

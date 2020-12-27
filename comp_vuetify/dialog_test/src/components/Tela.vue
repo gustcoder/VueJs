@@ -31,7 +31,7 @@ export default {
     },
     methods: {        
         closeDialog () {
-            return this.$store.commit('setShowDialog', false)
+            return this.$store.commit('showDialog', false)
         }
     }
 }

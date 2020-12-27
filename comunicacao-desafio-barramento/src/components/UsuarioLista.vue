@@ -24,8 +24,8 @@ export default {
         usuarios: Array 
     },
     methods: {
-        selectUser (user) {       
-            barramento.selectUser(user)
+        selectUser (usuario) {       
+            barramento.selectUser(usuario)
             // console.log(this.usuarios[key])
         }
     }
