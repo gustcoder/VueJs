@@ -1,9 +1,10 @@
 <template>
 	<div id="app">
+		<button @click="toogleLoja(show.showLoja)">{{ textoLoja }} Loja</button>
 		<h1>Exercícios Vuex</h1>
 		<div class="linha">
 			<Parametros />
-			<Loja />
+			<DialogContent />
 		</div>
 		<div class="linha">
 			<Carrinho />
@@ -13,14 +14,30 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import Parametros from './components/Parametros'
-import Loja from './components/Loja'
 import Carrinho from './components/Carrinho'
 import Resumo from './components/Resumo'
+import DialogContent from './components/DialogContent'
 
 export default {
 	name: 'app',
-	components: { Parametros, Loja, Carrinho, Resumo }
+	computed: { 
+		...mapState(['show']),
+		textoLoja () {
+			if (this.show.showLoja) {
+				return 'Ocultar'
+			}
+			return 'Exibir'
+		}
+	},
+	components: { Parametros, Carrinho, Resumo, DialogContent },
+	methods: {
+		...mapMutations(['setShowLoja']),
+		toogleLoja (showLoja) {
+			this.setShowLoja(!showLoja)
+		}
+	}
 }
 </script>
 

@@ -7,7 +7,10 @@ export default new Vuex.Store({
     state: {
         produtos: [],
         quantidade: 1,
-        preco: 9.99
+        preco: 9.99,
+        show: {
+            showLoja: false
+        }
     },
     getters: {
         getTotal (state) {
@@ -30,6 +33,9 @@ export default new Vuex.Store({
         },
         setPreco (state, payload) {
             state.preco = payload
+        },
+        setShowLoja (state, payload) {
+            state.show.showLoja = payload
         }
     },
     actions: {
