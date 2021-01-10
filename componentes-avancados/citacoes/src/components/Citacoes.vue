@@ -5,11 +5,9 @@
             <button @click="numero++">&gt;</button>
         </span>
         <Citacao>
-            <h2>Teste</h2>
-            <h1 slot="autor">{{ citacoes[indice].autor }}</h1>
             <p slot="texto">{{ citacoes[indice].texto }}</p>
             <h6 slot="fonte">{{ citacoes[indice].fonte }}</h6>
-            <h2>Testando</h2>
+            <h1 slot="autor">{{ citacoes[indice].autor }}</h1>
         </Citacao>
     </div>
 </template>
@@ -41,6 +39,17 @@ export default {
     },
     created() {
         // console.log(this.citacoes[0])
+        // console.log('created')
+    },
+    activated () {
+        // console.log('Activated')
+    },
+    deactivated () {
+        // console.log('Deactivated')
+    },
+    destroyed() {
+        // console.log(this.citacoes[0])
+        // console.log('destroyed')
     },
     computed: {
         indice() {
@@ -58,6 +67,6 @@ export default {
         align-items: center;
     }
     h1 {
-        color: red;
+        color: white;
     }
 </style>
