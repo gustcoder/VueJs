@@ -7,9 +7,7 @@
 		</span>
 		
 		<component :is="componentName">
-			<template>
-				Conteúdo do Componente <strong>{{ componentName }}</strong>
-			</template>
+			<span slot="componentContent">Conteúdo do Componente <strong>{{ componentName }}</strong></span>
 		</component>
 	</div>
 </template>
