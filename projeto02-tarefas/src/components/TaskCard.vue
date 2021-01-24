@@ -1,9 +1,9 @@
 <template>
   <div class="task-card" :class="{ 'task-item-done' : isDone}">
-      <span class="close-card" title="Excluir tarefa" @click="closeCard(task.taskName)">x</span>
       <div class="task-item-pendent" @click="toggleTaskStatus(task.taskName)">
           {{ task.taskName }}
       </div>
+      <span class="close-card" title="Excluir tarefa" @click="closeCard(task.taskName)">x</span>
   </div>
 </template>
 
@@ -44,7 +44,8 @@ export default {
 
 <style>
     .task-card {
-        text-align: center;
+        display: flex;
+        justify-content: flex-end;
 		background-color: tomato;
         margin: 20px;
         padding: 20px;
