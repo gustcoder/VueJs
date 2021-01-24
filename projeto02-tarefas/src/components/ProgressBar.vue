@@ -27,6 +27,7 @@ export default {
 
 <style>
     #progress-bar {
+        display: flex;
         color: white;
         width: 80%;
         text-align: center;
@@ -34,8 +35,6 @@ export default {
         border-radius: 5px;
     }
     #progress-bar-done {
-        display: flex;
-        justify-content: center;
         height: 100%;
         background-color: limegreen;
     }

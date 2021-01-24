@@ -1,6 +1,7 @@
 <template>
-  <div class="task-card" @click="toggleTaskStatus(task.taskName)" :class="{ 'task-item-done' : isDone}">
-      <div class="task-item-pendent">
+  <div class="task-card" :class="{ 'task-item-done' : isDone}">
+      <span class="close-card" title="Excluir tarefa" @click="closeCard(task.taskName)">x</span>
+      <div class="task-item-pendent" @click="toggleTaskStatus(task.taskName)">
           {{ task.taskName }}
       </div>
   </div>
@@ -32,16 +33,22 @@ export default {
         }
     },
     methods: {
-        ...mapMutations(['toggleTaskStatus'])
+        ...mapMutations(['toggleTaskStatus', 'setNewTaskList']),
+        closeCard (taskName) {
+            const taskListWithRemovedItem = this.taskListToDo.filter(list => (list.taskName !== taskName))
+            this.setNewTaskList(taskListWithRemovedItem)
+        }
     }
 }
 </script>
 
 <style>
     .task-card {
+        text-align: center;
 		background-color: tomato;
         margin: 20px;
         padding: 20px;
+        width: 180px;
         height: 40px;
 		border-radius: 5px;
         cursor: pointer;
@@ -54,5 +61,16 @@ export default {
 
     .task-item-done {
         background-color: mediumseagreen;
-    }    
+    }   
+
+    .task-item-pendent {
+        width: 100%;
+        height: 100%;
+    }
+
+    .close-card {
+        display: flex;
+        text-align: right;
+        width: 50px;
+    }
 </style>
