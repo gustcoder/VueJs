@@ -1,9 +1,9 @@
 <template>
-	<div id="app">
+	<div id="app">		
 		<h1>Tarefas</h1>
 		<progress-bar />
 		<div class="divAddTask">
-			<input type="text" name="btnTaskName" class="btnTaskName" placeholder="Nova tarefa?" v-model="taskName">
+			<input type="text" @keydown.enter="addTaskToList(taskListPayload)" name="btnTaskName" class="btnTaskName" placeholder="Nova tarefa?" v-model="taskName">
 			<button class="btnAddTask" @click="addTaskToList(taskListPayload)">+</button>
 		</div>
 		<keep-alive>
@@ -34,11 +34,17 @@ export default {
 				taskName: this.taskName,
 				status: 'pendent'
 			}
+
+			this.clearInput()
+
 			return payload
 		}
 	},
 	methods: {
-		...mapMutations(['addTaskToList'])
+		...mapMutations(['addTaskToList']),
+		clearInput () {
+			this.taskName = ''
+		}
 	}
 }
 </script>
