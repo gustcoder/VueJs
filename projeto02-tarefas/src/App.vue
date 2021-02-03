@@ -9,11 +9,12 @@
 		<keep-alive>
 			<task-list />
 		</keep-alive>
+		<div v-if="taskExists.exists" class="divTaskExists">Tarefa {{ taskExists.name }} já existe!</div>
 	</div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import ProgressBar from './components/ProgressBar.vue'
 import TaskList from './components/TaskList.vue'
 
@@ -29,6 +30,7 @@ export default {
 		}
 	},
 	computed: {
+		...mapState(['taskExists']),
 		taskListPayload () {
 			const payload = {
 				taskName: this.taskName,
@@ -72,6 +74,14 @@ export default {
 	}
 
 	.divAddTask {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 30px;
+		width: 80%;
+	}
+
+	.divTaskExists {
 		display: flex;
 		justify-content: center;
 		align-items: center;

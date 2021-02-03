@@ -5,12 +5,26 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        taskListToDo: []
+        taskListToDo: [],
+        taskExists: {
+            name: '',
+            exists: false
+        }
     },
 
     mutations: {
         addTaskToList (state, payload) {
-            if (!state.taskListToDo.includes(payload)) {
+            debugger
+            state.taskExists.exists = false
+            const newTask = state.taskListToDo.filter(tasks => tasks.taskName === payload.taskName)
+
+            if (newTask.length > 0) {
+                state.taskExists = {
+                    name: payload.taskName,
+                    exists: true
+                }
+            }
+            else {
                 state.taskListToDo.push(payload)
             }
         },
