@@ -14,7 +14,6 @@ export default new Vuex.Store({
 
     mutations: {
         addTaskToList (state, payload) {
-            debugger
             state.taskExists.exists = false
             const newTask = state.taskListToDo.filter(tasks => tasks.taskName === payload.taskName)
 
