@@ -7,8 +7,13 @@
             >
                 mdi-close
             </v-icon>
-        </v-button>    
-        <h1>{{ titulo }}</h1>
+        </v-button>
+        <v-tooltip bottom>
+            <template v-slot:activator="{ on }">    
+                <h1 v-on="on">{{ titulo }}</h1>
+            </template>
+            <span>Este é um tooltip</span>
+        </v-tooltip>
         <p>{{ texto }}</p>
     </div>
 </template>

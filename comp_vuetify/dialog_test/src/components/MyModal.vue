@@ -1,5 +1,10 @@
-<template>  
-  <button @click="showDialog">Exibir Dialog</button>
+<template>
+  <v-tooltip bottom>
+    <template v-slot:activator="{ on }">  
+      <button @click="showDialog" v-on="on">Exibir Dialog</button>
+    </template>
+    <span>Dialog</span>
+  </v-tooltip>
 </template>
 
 <script>
