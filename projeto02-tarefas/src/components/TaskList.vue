@@ -6,13 +6,20 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import TaskCard from './TaskCard.vue'
 
 export default {
   components: { TaskCard },
     computed: {
         ...mapState(['taskListToDo'])
+    },
+    methods: {
+        ...mapMutations(['setTaskListToDo'])
+    },
+    created () {
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || []
+        this.setTaskListToDo(tasks)
     }
 }
 </script>

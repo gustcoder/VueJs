@@ -13,6 +13,9 @@ export default new Vuex.Store({
     },
 
     mutations: {
+        setTaskListToDo (state, payload) {
+            state.taskListToDo = payload
+        },
         addTaskToList (state, payload) {
             state.taskExists.exists = false
             const newTask = state.taskListToDo.filter(tasks => tasks.taskName === payload.taskName)
@@ -25,6 +28,7 @@ export default new Vuex.Store({
             }
             else {
                 state.taskListToDo.push(payload)
+                localStorage.setItem('tasks', JSON.stringify(state.taskListToDo))
             }
         },
         setNewTaskList (state, payload) {
@@ -33,6 +37,7 @@ export default new Vuex.Store({
         toggleTaskStatus (state, payload) {
             const findTask = state.taskListToDo.filter(task => (task.taskName === payload))
             findTask[0].status === 'pendent' ? findTask[0].status = 'done' : findTask[0].status = 'pendent'
+            localStorage.setItem('tasks', JSON.stringify(state.taskListToDo))
         }
     }
 })

@@ -37,6 +37,7 @@ export default {
         closeCard (taskName) {
             const taskListWithRemovedItem = this.taskListToDo.filter(list => (list.taskName !== taskName))
             this.setNewTaskList(taskListWithRemovedItem)
+            localStorage.setItem('tasks', JSON.stringify(taskListWithRemovedItem))
         }
     }
 }
