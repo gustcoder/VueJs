@@ -2,7 +2,7 @@
 	<div id="app">
 		<h1>Formulário Desafio</h1>
 		<div class="conteudo">
-			<form class="painel">
+			<form class="painel" v-if="!enviado">
 				<div class="cabecalho">Formulário</div>
 				<!-- Exercicio 01 -->
 				<!-- Criar uma formulário de registro -->
@@ -10,7 +10,23 @@
 				<!-- Email -->
 				<!-- Senha -->
 				<!-- Armazenar Dados? (Sim/Não) -->
-
+					<Rotulo nome="Nome">						
+						<input type="text" v-model="usuario.nome">
+					</Rotulo>
+					<Rotulo nome="Sobrenome">						
+						<input type="text" v-model="usuario.sobrenome">
+					</Rotulo>
+					<Rotulo nome="E-mail">						
+						<input type="text" v-model="usuario.email">
+					</Rotulo>
+					<Rotulo nome="Senha">						
+						<input type="password" v-model="usuario.senha">
+					</Rotulo>
+					<Rotulo nome="Armazenar Dados" type="checkbox">						
+						<input type="checkbox" style="cursor: pointer;" v-model="usuario.armazenarDados">
+					</Rotulo>
+					<div v-if="noData && dadosVazios" class="noData">Por favor preencha o formulário!</div>
+					<button @click.prevent="enviar()">Enviar</button>
 				<!-- Exercicio 02 -->
 				<!-- Só mostrar o fomulário de não tiver sido submetido -->
 				<!-- Mostrar a área de Resultado apenas quando o formulário for submetido -->
@@ -19,9 +35,21 @@
 				<!-- Crie um componente personalizado NomeCompleto -->
 				<!-- Esse componente deve receber Nome e Sobrenome -->
 			</form>
-			<div class="painel">
+			<div class="painel" v-else>
 				<div class="cabecalho">Resultado</div>
-
+					<NomeCompleto 
+						:nome="usuario.nome"
+						:sobrenome="usuario.sobrenome"
+					/>
+					<Rotulo nome="E-mail">
+						<span>{{ usuario.email }}</span>
+					</Rotulo>
+					<Rotulo nome="Senha">
+						<span>{{ usuario.senha }}</span>
+					</Rotulo>
+					<Rotulo nome="Armazenar Dados" type="checkbox">
+						<span>{{ usuario.armazenarDados }}</span>
+					</Rotulo>
 			</div>
 		</div>
 	</div>
@@ -29,10 +57,41 @@
 
 <script>
 import Rotulo from './components/Rotulo.vue'
+import NomeCompleto from './components/NomeCompleto.vue'
 
 export default {
 	name: 'app',
-	components: { Rotulo }
+	components: { Rotulo, NomeCompleto },
+	data () {
+		return {
+			usuario: {
+				nome: '',
+				sobrenome: '',
+				email: '',
+				senha: '',
+				armazenarDados: false
+			},
+			dadosVazios: false,
+			enviado: false
+		}
+	},
+	computed: {
+		noData () {
+			const { nome, sobrenome, email, senha } = this.usuario
+			return !nome || !sobrenome || !email || !senha
+		}
+	},
+	methods: {
+		enviar () {
+			if (this.noData) {
+				this.dadosVazios = true
+				return
+			}
+
+			this.enviado = true
+			this.dadosVazios = false
+		}
+	}
 }
 </script>
 
@@ -75,6 +134,7 @@ body {
 }
 
 #app form button {
+	cursor: pointer;
 	float: right;
 	margin: 10px 0px;
 	padding: 10px 20px;
@@ -92,5 +152,16 @@ body {
 
 .mr-4 {
 	margin-right: 40px;
+}
+
+.noData {
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+	padding: 10px;
+	background-color: lightcoral;
+	border: 1px solid #999;
+	border-radius: 5px;
+	color: white;
 }
 </style>

@@ -1,9 +1,7 @@
-<template>
-    <div class="rotulo">
-        <label>{{ nome }}:</label>
-        <div :class="applyClass">
-            <slot></slot>
-        </div>
+<template>  
+    <div class="nome__completo">
+        <label>Nome Completo:</label>
+        <span>{{ nome }} {{ sobrenome }}</span>
     </div>
 </template>
 
@@ -14,25 +12,16 @@ export default {
             type: String,
             default: ''
         },
-        type: {
+        sobrenome: {
             type: String,
             default: ''
-        }
-    }, // ['nome', 'type'],
-    computed: {
-        applyClass () {
-            if (this.type === '') {
-                return 'elemento'
-            }
-
-            return ''
         }
     }
 }
 </script>
 
 <style scoped>
-    .rotulo {
+    .nome__completo {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -46,11 +35,6 @@ export default {
         margin: 10px 0px;
     }
 
-    .checkbox {
-        width: 20px;
-        height: 20px;
-    }
-
     input, textarea, select {
         flex: 1;
         font-size: 1.4rem;
@@ -58,10 +42,5 @@ export default {
         border: 1px solid #DDD;
         border-radius: 5px;
         padding: 5px 10px;
-    }
-
-
-    input:focus {
-        border: 1px solid #BBB;
     }
 </style>
