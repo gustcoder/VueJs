@@ -1,7 +1,7 @@
 <template>
 	<div id="app" class="container">
 		<h1>HTTP com Axios</h1>
-		<b-card>
+		<b-card>    		
 			<b-form-group label="Nome:">
 				<b-form-input 
 					type="text"
@@ -21,39 +21,42 @@
 				</b-form-input>
 			</b-form-group>
 			<hr>
-			<b-button @click="salvar" variant="primary">Salvar</b-button>
+			<b-button @click="save" variant="primary">Salvar</b-button>
+			<b-button @click="getUsers" variant="success" class="ml-2">Obter Usuários</b-button>
 		</b-card>
 		<b-alert v-show="getShowMessage" variant="success" show dismissible>Dados cadastrados com sucesso!</b-alert>
-		<b-alert v-show="!validateData && checkSubmit" variant="danger" show dismissible>Preencha todos os dados!</b-alert>
+		<b-alert v-show="!validateData" v-model="showAlert" variant="danger" show dismissible>Preencha todos os dados!</b-alert>
+		<b-list-group>
+			<b-list-group-item v-for="(usuario, id) in usuarios" :key="id">
+				<strong>Nome:</strong> {{ usuario.nome }}<br>
+				<strong>E-mail:</strong> {{ usuario.email }}<br>
+				<strong>ID:</strong> {{ id }}<br>
+			</b-list-group-item>
+		</b-list-group>
 	</div>
 </template>
 
 <script>
 export default {
-	// created () {		
-	// 	/* eslint-disable */
-	// 	this.$http.post('usuarios.json', {
-	// 		'nome': 'Gustavo',
-	// 		'email': 'gustavo@teste.com'
-	// 	}).then(res => console.log(res))
-	// }
 	data () {
 		return {
+			usuarios: [],
 			usuario: {
 				nome: '',
 				email: ''
 			},
 			response: '',
 			showMessage: false,
-			submit: false
+			submit: false,
+			showAlert: false
 		}
+	},
+	created () {
+		this.getUsers()
 	},
 	computed: {
 		getShowMessage () {
 			return this.showMessage
-		},
-		checkSubmit () {
-			return this.submit
 		},
 		validateData () {
 			return this.usuario.nome && this.usuario.email
@@ -65,20 +68,26 @@ export default {
 			this.usuario.nome = '',
 			this.usuario.email = ''
 			this.submit = false
+			this.showAlert = false
 		},
-		salvar() {
-			this.submit = true
+		getUsers () {
+			this.$http.get('usuarios.json').then(res => {
+				this.usuarios = res.data
+				// eslint-disable-next-line no-console
+				console.log(this.usuarios)
+			})
+		},
+		save () {
 			if (!this.validateData) {
+				this.showAlert = true
 				return
 			}
 
-			// eslint-disable-next-line no-console
-			console.log(this.usuario)
-				this.$http.post('usuarios.json', {
-					'nome': this.usuario.nome,
-					'email': this.usuario.email
-				}).then(res => this.response = res)
-			this.reset()
+			this.$http.post('usuarios.json', this.usuario).then(res => {
+				this.response = res
+				this.reset()
+				this.getUsers()
+			})
 		}
 	}
 }
