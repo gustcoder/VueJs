@@ -25,7 +25,9 @@
 			<b-button @click="getUsers" variant="success" class="ml-2">Obter Usuários</b-button>
 		</b-card>
 		<b-alert v-show="getShowMessage" variant="success" show dismissible>Dados cadastrados com sucesso!</b-alert>
-		<b-alert v-show="!validateData" v-model="showAlert" variant="danger" show dismissible>Preencha todos os dados!</b-alert>
+		<b-alert v-show="!validateData" v-model="showAlert" variant="danger" show dismissible>Preencha todos os dados!</b-alert>		
+		<b-table striped hover :items="usuarios"></b-table>
+		<!--
 		<b-list-group>
 			<b-list-group-item v-for="(usuario, id) in usuarios" :key="id">
 				<strong>Nome:</strong> {{ usuario.nome }}<br>
@@ -33,6 +35,7 @@
 				<strong>ID:</strong> {{ id }}<br>
 			</b-list-group-item>
 		</b-list-group>
+		-->
 	</div>
 </template>
 
@@ -70,9 +73,17 @@ export default {
 			this.submit = false
 			this.showAlert = false
 		},
+		usersToArray (res) {
+			const arrayUsuarios = []
+			for(let key in res) {
+				arrayUsuarios.push({ id: key, ...res[key] })
+			}
+
+			return arrayUsuarios
+		},
 		getUsers () {
 			this.$http.get('usuarios.json').then(res => {
-				this.usuarios = res.data
+				this.usuarios = this.usersToArray(res.data)
 				// eslint-disable-next-line no-console
 				console.log(this.usuarios)
 			})
