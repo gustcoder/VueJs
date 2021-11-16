@@ -6,7 +6,9 @@ new Vue ({
         bossLife: 100,
         numberOfSpecialAttack: 5,
         numberOfHeals: 10,
-        logs: []
+        logs: [],
+        minHeal: 10,
+        maxHeal: 15
     },
     computed: {
         hasResult () {
@@ -59,9 +61,17 @@ new Vue ({
             this.numberOfHeals = Math.max(this.numberOfHeals - 1, 0)
         },
         heal (min, max) {
+            if (!min) {
+                min = this.minHeal
+            }
+            if (!max) {
+                max = this.maxHeal
+            }
+
             const heal = this.getRandom(min, max)
             this.playerLife = Math.min(this.playerLife + heal, 100)
             this.registerLog(`Player was healed with ${heal}.`, 'player') // acao disparada sempre pelo player
+            this.numberOfHeals = Math.max(this.numberOfHeals - 1, 0)
         },
         getRandom (min, max) {
             const value = Math.random() * (max - min) + min

@@ -39,7 +39,7 @@
                 <button @click="attack(true)" class="btn special-attack" :class="{disabled: numberOfSpecialAttack === 0}">
                     Special Attack ({{ numberOfSpecialAttack }})
                 </button>
-                <button @click="healAndHit" class="btn heal" :class="{disabled: numberOfHeals === 0}">Estus ({{ numberOfHeals }})</button>
+                <button @click="heal(10,15)" class="btn heal" :class="{disabled: numberOfHeals === 0}">Estus ({{ numberOfHeals }})</button>
                 <button @click="isRunning = false" class="btn give-up">Give Up</button>
             </template>
             <template v-else>
