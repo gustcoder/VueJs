@@ -4,17 +4,22 @@
 		<!-- Exercício 1 -->
 		<!-- Construir um filtro local que troca espaços por vírgula -->
 		<input type="text" v-model="texto" />
-		<p>{{ getTexto | trocaEspacoPorVirgula }}</p>
+		<p>{{ texto | trocaEspacoPorVirgula }}</p>
 		
 		<!-- Exercício 2 -->
 		<!-- Filtro global que conta o tamanho de cada palavra e adiciona o 
 			valor na string final -->
 		<!-- "Pedro é legal" => "Pedro (5) é (1) legal (5)" -->
 		<input type="text" v-model="frase" />
-		<p>{{ getFrase | contaPalavra }}</p>
+		<p>{{ frase | contaPalavra }}</p>
 
 		<!-- Exercício 3 -->
 		<!-- Implementar os exercicios 1 e 2 com propriedade computada -->
+		<input type="text" v-model="texto" />
+		<p>{{ getTexto }}</p>
+
+		<input type="text" v-model="frase" />
+		<p>{{ getFrase }}</p>
 
 		<!-- Exercício 4 -->
 		<!-- Compartilhe a propriedade computada via mixin -->
@@ -42,11 +47,18 @@ export default {
 		}
 	},
 	computed: {
-		getTexto() {
-			return this.texto
+		getTexto() {			
+			let novoTexto = ''
+			for (let index in this.texto) {
+				novoTexto += `${this.texto[index].replace(' ',',')}`
+			}
+
+			return novoTexto
 		},
 		getFrase() {
-			return this.frase
+			const arrayPalavras = this.frase.split(' ')
+
+			return arrayPalavras.map(palavra => `${palavra} (${palavra.length})`).join(' ')
 		},
 	}
 }
