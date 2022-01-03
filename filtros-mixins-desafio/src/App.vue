@@ -3,11 +3,15 @@
 		<h1>Filtros & Mixins (Desafio)</h1>
 		<!-- Exercício 1 -->
 		<!-- Construir um filtro local que troca espaços por vírgula -->
+		<input type="text" v-model="texto" />
+		<p>{{ getTexto | trocaEspacoPorVirgula }}</p>
 		
 		<!-- Exercício 2 -->
 		<!-- Filtro global que conta o tamanho de cada palavra e adiciona o 
 			valor na string final -->
 		<!-- "Pedro é legal" => "Pedro (5) é (1) legal (5)" -->
+		<input type="text" v-model="contaPalavra" />
+		<p>{{ contaPalavra | contaPalavra }}</p>
 
 		<!-- Exercício 3 -->
 		<!-- Implementar os exercicios 1 e 2 com propriedade computada -->
@@ -19,7 +23,32 @@
 
 <script>
 export default {
-	
+	filters: {
+		trocaEspacoPorVirgula(valor) {
+			let novoValor = ''
+
+			for (let index in valor) {
+				novoValor += `${valor[index].replace(' ',',')}`
+			}
+
+			return novoValor
+			
+		}
+	},
+	data() {
+		return {
+			texto: '',
+			contaPalavra: ''
+		}
+	},
+	computed: {
+		getTexto() {
+			return this.texto
+		},
+		getContaPalavra() {
+			return this.contaPalavra
+		},
+	}
 }
 </script>
 
