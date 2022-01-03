@@ -10,8 +10,8 @@
 		<!-- Filtro global que conta o tamanho de cada palavra e adiciona o 
 			valor na string final -->
 		<!-- "Pedro é legal" => "Pedro (5) é (1) legal (5)" -->
-		<input type="text" v-model="contaPalavra" />
-		<p>{{ contaPalavra | contaPalavra }}</p>
+		<input type="text" v-model="frase" />
+		<p>{{ getFrase | contaPalavra }}</p>
 
 		<!-- Exercício 3 -->
 		<!-- Implementar os exercicios 1 e 2 com propriedade computada -->
@@ -26,7 +26,7 @@ export default {
 	filters: {
 		trocaEspacoPorVirgula(valor) {
 			let novoValor = ''
-
+			
 			for (let index in valor) {
 				novoValor += `${valor[index].replace(' ',',')}`
 			}
@@ -38,15 +38,15 @@ export default {
 	data() {
 		return {
 			texto: '',
-			contaPalavra: ''
+			frase: ''
 		}
 	},
 	computed: {
 		getTexto() {
 			return this.texto
 		},
-		getContaPalavra() {
-			return this.contaPalavra
+		getFrase() {
+			return this.frase
 		},
 	}
 }
