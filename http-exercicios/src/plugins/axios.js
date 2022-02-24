@@ -9,5 +9,12 @@ Vue.use({
         Vue.prototype.$http = axios.create({
             baseURL: 'https://curso-vue-42eb5-default-rtdb.europe-west1.firebasedatabase.app/'
         })
+
+        Vue.prototype.$http.interceptors.request.use(config => {
+            // eslint-disable-next-line
+            console.log(config.method)
+
+            return config
+        })
     }
 })
